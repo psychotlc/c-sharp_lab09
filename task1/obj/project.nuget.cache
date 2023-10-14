@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "Lkan1+ZUMlSge/I1TPXYQD+4LiJPv35v81yW0R3qnfCS2aQzNrB0efOUxR9mcwR5Yh0+irjFS3TqE8wofq7hWQ==",
+  "success": true,
+  "projectFilePath": "/home/narek/Documents/C#/lab09/task1/task1.csproj",
+  "expectedPackageFiles": [
+    "/home/narek/.nuget/packages/microsoft.netcore.app.ref/6.0.8/microsoft.netcore.app.ref.6.0.8.nupkg.sha512",
+    "/home/narek/.nuget/packages/microsoft.aspnetcore.app.ref/6.0.8/microsoft.aspnetcore.app.ref.6.0.8.nupkg.sha512",
+    "/home/narek/.nuget/packages/microsoft.netcore.app.host.linux-x64/6.0.8/microsoft.netcore.app.host.linux-x64.6.0.8.nupkg.sha512"
+  ],
+  "logs": []
+}
