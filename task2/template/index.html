@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather</title>
+</head>
+<body>
+    <select id="select-country-object"></select>
+    <button onclick="loadCurrentWeather()">Загрузить текущую погоду</button>
+</body>
+</html>
+
+<script>
+
+    var selectCountryObject = document.getElementById("select-country-object")
+
+    var countries;
+
+    getAllCountries();
+
+    async function getAllCountries(){
+        
+
+        var response = await fetch(
+            "http://localhost:7111/get-countries",   
+        )
+
+        var response = await response.json();
+        countries = response;
+        for (var item of response){
+            var optionObj = document.createElement("option")
+            optionObj.innerHTML = item.name
+            selectCountryObject.appendChild(optionObj)
+        }
+    }
+
+    async function loadCurrentWeather(){
+        var country= countries[selectCountryObject.selectedIndex]
+        
+        var response = await fetch(
+            `http://localhost:7111/get-weather?lat=${country.lat}&lon=${country.lon}`
+        )
+
+        response = await response.json();
+
+        console.log(response)
+    }
+</script>
