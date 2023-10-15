@@ -1,6 +1,10 @@
-using WeatherClasses;
-using CountryClass;
+using Models.WeatherClasses;
+using Models.CountryClass;
+
+using Utils.Requests;
+
 using Newtonsoft.Json;
+
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.Cors;
 
@@ -45,7 +49,7 @@ app.MapGet("/get-weather", async (HttpContext context) =>
 
     string url = $"https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={API_KEY}";
 
-    string content = await Get(url);
+    string content = await HttpGet.Get(url);
 
     WeatherResponse response = JsonConvert.DeserializeObject<WeatherResponse>(content);
 
@@ -80,29 +84,7 @@ app.MapGet("get-countries", () =>
 });
 
 
-async Task<string> Get(string url)
-{
-    using (HttpClient httpClient = new HttpClient())
-    {
-        try
-        {
-            HttpResponseMessage response = await httpClient.GetAsync(url);
 
-            if (response.IsSuccessStatusCode)
-            {
-                return await response.Content.ReadAsStringAsync();
-            }
-            else
-            {
-                throw new HttpRequestException($"HTTP Error: {response.StatusCode} - {response.ReasonPhrase}");
-            }
-        }
-        catch (HttpRequestException e)
-        {
-            throw new HttpRequestException($"Request error: {e.Message}");
-        }
-    }
-}
 
 app.Run();
 

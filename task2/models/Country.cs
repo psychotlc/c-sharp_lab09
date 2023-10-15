@@ -1,5 +1,5 @@
 
-namespace CountryClass;
+namespace Models.CountryClass;
 
 public class Country{
     public string Name {get; set;}

@@ -1,0 +1,25 @@
+body{
+    margin: 0px;
+    padding: 0px;
+}
+
+.weather-information-page{
+    width: 100%;
+    height: 100vh;
+    
+}
+
+.toolbar, .weather-information-container{
+    width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+.toolbar-buttons{
+    margin: 20px;
+    margin-left: 0px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid gray;
+}

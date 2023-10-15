@@ -1,5 +1,5 @@
 
-namespace WeatherClasses;
+namespace Models.WeatherClasses;
 public class Weather
     {
         public string Country { get; set; }
